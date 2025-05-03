@@ -1,4 +1,15 @@
+import React, { useState } from 'react';
+
 export default function Register_Page(){
+
+    const [username, set_username] = useState('');
+    
+
+    const handle_submit = (e) =>{
+        e.preventDefault();
+
+    }
+
     return (
         <>
             <h1>Register Page</h1>
