@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export default function Login_Page(){
     const [username_email, set_username_Email] = useState('');
     const [password, set_password] = useState('');
+    const [password_reveal, set_password_reveal] = useState(false);
 
     const handle_submit = (e) => {
         e.preventDefault();
@@ -30,11 +31,17 @@ export default function Login_Page(){
                 <label>Password</label>
                 <br/>
                 <input 
-                    type = "password" 
+                    type = {password_reveal ? "text" : "password"}
                     name = "password"
                     value = {password}
                     onChange = {(e) => set_password(e.target.value)}
                 />
+                <button
+                    type = "button"
+                    onClick = {() => set_password_reveal(!password_reveal)}    
+                >
+                    {password_reveal ? "Hide" : "Reveal"}
+                </button>
                 <br/>
                 <button>Submit</button>
             </form>
